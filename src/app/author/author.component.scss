@@ -1,0 +1,40 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.btn{
+  width: 672px;
+  height: 151px;
+  margin-top: 110px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 0px;
+
+}
+
+.author{
+  justify-self: start;
+  align-self: end;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color:#4F4F4F;
+}
+.subtitle{
+  justify-self: start;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color:#828282;
+}
+
+.btn:hover{
+  background-color: #333333;
+  color: #F2F2F2;
+}
+
+.arrow{
+  justify-self: end;
+}

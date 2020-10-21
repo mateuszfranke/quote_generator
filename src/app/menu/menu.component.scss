@@ -1,0 +1,13 @@
+.container{
+  display:grid;
+  grid-template-columns: 70px 30px;
+  justify-content: end;
+}
+
+.font{
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4F4F4F;
+
+}
