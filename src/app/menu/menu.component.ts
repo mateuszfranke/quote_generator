@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {QouteGardenService} from '../services/qoute-garden.service';
+import {QuoteGardenService} from '../services/quote-garden.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  providers: [QouteGardenService]
+  providers: [QuoteGardenService]
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private qouteGardenService: QouteGardenService) {
+  constructor(private qouteGardenService: QuoteGardenService) {
 
   }
 

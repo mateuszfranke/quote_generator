@@ -3,24 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QouteComponent } from './qoutes/qoute/qoute.component';
+import { QuoteComponent } from './quotes/quote/quote.component';
 import { MenuComponent } from './menu/menu.component';
 import { AuthorComponent } from './author/author.component';
-import { QoutesComponent } from './qoutes/qoutes.component';
+import { QuotesComponent } from './quotes/quotes.component';
+import {HttpClientModule} from '@angular/common/http';
+import {QuoteGardenService} from './services/quote-garden.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QouteComponent,
+    QuoteComponent,
     MenuComponent,
     AuthorComponent,
-    QoutesComponent
+    QuotesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [QuoteGardenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

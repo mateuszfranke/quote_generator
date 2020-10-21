@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-qoute',
-  templateUrl: './qoute.component.html',
-  styleUrls: ['./qoute.component.scss']
+  templateUrl: './quote.component.html',
+  styleUrls: ['./quote.component.scss']
 })
-export class QouteComponent implements OnInit {
+export class QuoteComponent implements OnInit {
 
   qoute: string;
 
