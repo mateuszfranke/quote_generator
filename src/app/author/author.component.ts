@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {QuoteGardenService} from '../services/quote-garden.service';
+import {QuoteModel} from '../model/Quote.model';
 
 @Component({
   selector: 'app-author',
@@ -7,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorComponent implements OnInit {
 
-  author: string;
-  subtitle: string;
+  randomQuote: QuoteModel = new QuoteModel();
 
-  constructor() { }
+  constructor(private quoteService: QuoteGardenService) {
+    this.quoteService.randomQuoteEmiter.subscribe((res: QuoteModel) => {
+     this.randomQuote = res;
+    });
+  }
 
   ngOnInit(): void {
-    this.author = 'Steve Jobs';
-    this.subtitle = 'business';
+    this.randomQuote.quoteAuthor = '';
+    this.randomQuote.quoteGenre = '';
+
   }
 
 }
