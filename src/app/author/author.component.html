@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!clicked">
   <div class="btn" (click)="onGetAuthorQuotes()">
     <div class="container-mini">
       <div class="author">{{randomQuote.quoteAuthor}}</div>
