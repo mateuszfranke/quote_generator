@@ -8,12 +8,19 @@ import {Observable, Subject} from 'rxjs';
 @Injectable()
 export class QuoteGardenService {
 
-  // randomQuote: QuoteModel;
   randomQuoteEmiter: Subject<QuoteModel> = new Subject<QuoteModel>();
   ulr: string;
+
   constructor(private http: HttpClient) {
     this.ulr = 'https://quote-garden.herokuapp.com/api/v2/quotes/random';
-    // this.randomQuote = new QuoteModel();
+  }
+
+  refresh(): void{
+    this.getRandomQoute().subscribe(observer => {this.randomQuoteEmiter.next(observer); });
+  }
+
+  getRandomQuoteEmitter(): Observable<QuoteModel> {
+    return this.randomQuoteEmiter.asObservable();
   }
 
   getRandomQoute(): Observable<QuoteModel>{

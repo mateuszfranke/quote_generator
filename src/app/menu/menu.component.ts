@@ -17,6 +17,6 @@ export class MenuComponent implements OnInit {
   }
 
   onGetRandomQuote(): void{
-    // this.quoteGardenService.getRandomQoute();
+    this.quoteGardenService.refresh();
   }
 }

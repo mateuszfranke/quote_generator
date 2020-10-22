@@ -17,7 +17,8 @@ export class QuoteComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quoteService.getRandomQoute().subscribe(resp => {
+    this.quoteService.refresh();
+    this.quoteService.getRandomQuoteEmitter().subscribe(resp => {
       this.qoute = resp.quoteText;
     });
   }
