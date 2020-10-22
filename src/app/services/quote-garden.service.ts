@@ -3,21 +3,21 @@ import {Injectable, Output, Query} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {QuoteModel} from '../model/Quote.model';
 import {InRandomQuoteHttpModel} from '../model/InRandomQuoteHttp.model';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable()
 export class QuoteGardenService {
 
-  randomQuote: QuoteModel;
+  // randomQuote: QuoteModel;
   randomQuoteEmiter: Subject<QuoteModel> = new Subject<QuoteModel>();
   ulr: string;
   constructor(private http: HttpClient) {
     this.ulr = 'https://quote-garden.herokuapp.com/api/v2/quotes/random';
-    this.randomQuote = new QuoteModel();
+    // this.randomQuote = new QuoteModel();
   }
 
-  getRandomQoute(): QuoteModel{
-    this.http.get<InRandomQuoteHttpModel>(this.ulr)
+  getRandomQoute(): Observable<QuoteModel>{
+   return this.http.get<InRandomQuoteHttpModel>(this.ulr)
       .pipe(
         map(responseData => {
           const quote: QuoteModel = new QuoteModel();
@@ -25,14 +25,6 @@ export class QuoteGardenService {
           quote.quoteAuthor = responseData.quote.quoteAuthor;
           quote.quoteGenre = responseData.quote.quoteGenre;
           return quote;
-        }))
-      .subscribe(responseData => {
-        this.randomQuote = responseData;
-      },error => {
-        alert('Couldn\'t recive a quote');
-      },( ) => {
-        console.log('random quote fetched');
-      });
-    return this.randomQuote;
+        }));
   }
 }

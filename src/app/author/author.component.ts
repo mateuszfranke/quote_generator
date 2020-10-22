@@ -12,14 +12,17 @@ export class AuthorComponent implements OnInit {
   randomQuote: QuoteModel = new QuoteModel();
 
   constructor(private quoteService: QuoteGardenService) {
-    this.quoteService.randomQuoteEmiter.subscribe((res: QuoteModel) => {
-     this.randomQuote = res;
-    });
+    // this.quoteService.randomQuoteEmiter.subscribe((res: QuoteModel) => {
+    //  this.randomQuote = res;
+    // });
   }
 
   ngOnInit(): void {
-    this.randomQuote.quoteAuthor = '';
-    this.randomQuote.quoteGenre = '';
+    this.quoteService.getRandomQoute().subscribe(resp => {
+      this.randomQuote.quoteAuthor = resp.quoteAuthor;
+      this.randomQuote.quoteGenre = resp.quoteGenre;
+    });
+
 
   }
 
