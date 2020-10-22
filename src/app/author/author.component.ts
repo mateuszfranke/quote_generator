@@ -10,20 +10,22 @@ import {QuoteModel} from '../model/Quote.model';
 export class AuthorComponent implements OnInit {
 
   randomQuote: QuoteModel = new QuoteModel();
-
+  clicked: boolean;
   constructor(private quoteService: QuoteGardenService) {
-    // this.quoteService.randomQuoteEmiter.subscribe((res: QuoteModel) => {
-    //  this.randomQuote = res;
-    // });
-  }
 
+  }
   ngOnInit(): void {
-    this.quoteService.getRandomQoute().subscribe(resp => {
+
+    this.quoteService.getRandomQuoteEmitter().subscribe(resp => {
       this.randomQuote.quoteAuthor = resp.quoteAuthor;
       this.randomQuote.quoteGenre = resp.quoteGenre;
+      this.clicked = false;
     });
+  }
 
-
+  onGetAuthorQuotes(): void{
+    this.clicked = true;
+    this.quoteService.authors(this.randomQuote.quoteAuthor);
   }
 
 }

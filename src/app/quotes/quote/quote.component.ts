@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {QuoteGardenService} from '../../services/quote-garden.service';
 import {QuoteModel} from '../../model/Quote.model';
-import { interval} from 'rxjs';
+
 
 @Component({
   selector: 'app-qoute',
@@ -10,16 +10,18 @@ import { interval} from 'rxjs';
 })
 export class QuoteComponent implements OnInit {
 
-  qoute: string;
+  @Input() quote: string;
+
 
   constructor(private quoteService: QuoteGardenService) {
-
   }
 
   ngOnInit() {
-    this.quoteService.getRandomQoute().subscribe(resp => {
-      this.qoute = resp.quoteText;
-    });
+    // this.quote='123';
   }
+
+  // ngOnChanges(): void {
+  //  // console.log(this.quote);
+  // }
 
 }
