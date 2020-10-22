@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {QuoteGardenService} from '../../services/quote-garden.service';
+import {QuoteModel} from '../../model/Quote.model';
 
 
 @Component({
@@ -9,13 +10,18 @@ import {QuoteGardenService} from '../../services/quote-garden.service';
 })
 export class QuoteComponent implements OnInit {
 
-  @Input() qoute: string;
+  @Input() quote: string;
+
 
   constructor(private quoteService: QuoteGardenService) {
   }
 
   ngOnInit() {
-
+    // this.quote='123';
   }
+
+  // ngOnChanges(): void {
+  //  // console.log(this.quote);
+  // }
 
 }

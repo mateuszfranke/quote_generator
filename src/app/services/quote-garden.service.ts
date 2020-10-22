@@ -27,7 +27,7 @@ export class QuoteGardenService {
   getRandomQuoteEmitter(): Observable<QuoteModel> {
     return this.randomQuoteEmiter.asObservable();
   }
-  getAuthorQuotesSubject(author: string): Observable<QuoteModel[]> {
+  getAuthorQuotesSubject(): Observable<QuoteModel[]> {
     return this.authorQuotesSubject.asObservable();
   }
 
@@ -44,7 +44,7 @@ export class QuoteGardenService {
   }
 
   getAuthorQuotes(author: string): Observable<QuoteModel[]>{
-    const url = `https://quote-garden.herokuapp.com/api/v2/authors/${author}?page=1&limit=10`;
+    const url = `https://quote-garden.herokuapp.com/api/v2/authors/${author}?page=1&limit=100`;
     return this.http.get<InAuthorQuotesHttpModel>(url)
      .pipe(
        map(resp => {

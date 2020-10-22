@@ -9,6 +9,7 @@ import { AuthorComponent } from './author/author.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import {HttpClientModule} from '@angular/common/http';
 import {QuoteGardenService} from './services/quote-garden.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {QuoteGardenService} from './services/quote-garden.service';
     QuoteComponent,
     MenuComponent,
     AuthorComponent,
-    QuotesComponent
+    QuotesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
