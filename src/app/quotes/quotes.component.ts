@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {QuoteGardenService} from '../services/quote-garden.service';
 
 @Component({
   selector: 'app-qoutes',
@@ -7,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuotesComponent implements OnInit {
 
-  constructor() { }
+  singleQuote: string;
+
+  constructor(private quoteService: QuoteGardenService) { }
 
   ngOnInit(): void {
+    this.quoteService.refresh();
+    this.quoteService.getRandomQuoteEmitter().subscribe(resp => {
+      this.singleQuote = resp.quoteText;
+    });
 
+    this.quoteService.getAuthorQuotesSubject().subscribe(resp => {
+      console.log(resp);
+    });
   }
+
 
 }
