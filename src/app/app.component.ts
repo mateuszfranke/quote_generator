@@ -10,10 +10,9 @@ export class AppComponent {
   title = 'quote-generator';
   author: string;
   constructor(private quoteService: QuoteGardenService) {
-    this.quoteService.getRandomQoute();
-    this.quoteService.randomQuoteEmiter.emit(this.quoteService.randomQuote);
+    quoteService.getRandomQoute();
+    this.quoteService.randomQuoteEmiter.next(this.quoteService.randomQuote);
 
   }
-
 
 }

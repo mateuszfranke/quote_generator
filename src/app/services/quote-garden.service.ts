@@ -1,20 +1,22 @@
 import {HttpClient} from '@angular/common/http';
-import {EventEmitter, Injectable, Output, Query} from '@angular/core';
+import {Injectable, Output, Query} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {QuoteModel} from '../model/Quote.model';
 import {InRandomQuoteHttpModel} from '../model/InRandomQuoteHttp.model';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class QuoteGardenService {
 
-  randomQuote: QuoteModel = new QuoteModel();
-  randomQuoteEmiter = new EventEmitter<QuoteModel>();
+  randomQuote: QuoteModel;
+  randomQuoteEmiter: Subject<QuoteModel> = new Subject<QuoteModel>();
   ulr: string;
   constructor(private http: HttpClient) {
     this.ulr = 'https://quote-garden.herokuapp.com/api/v2/quotes/random';
+    this.randomQuote = new QuoteModel();
   }
 
-  getRandomQoute(): void{
+  getRandomQoute(): QuoteModel{
     this.http.get<InRandomQuoteHttpModel>(this.ulr)
       .pipe(
         map(responseData => {
@@ -28,6 +30,9 @@ export class QuoteGardenService {
         this.randomQuote = responseData;
       },error => {
         alert('Couldn\'t recive a quote');
+      },( ) => {
+        console.log('random quote fetched');
       });
+    return this.randomQuote;
   }
 }

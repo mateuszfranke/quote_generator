@@ -10,7 +10,6 @@ import {QuoteGardenService} from '../services/quote-garden.service';
 export class MenuComponent implements OnInit {
 
   constructor(private quoteGardenService: QuoteGardenService) {
-
   }
 
   ngOnInit(): void {
@@ -19,6 +18,6 @@ export class MenuComponent implements OnInit {
 
   onGetRandomQuote(): void{
     this.quoteGardenService.getRandomQoute();
-    this.quoteGardenService.randomQuoteEmiter.emit(this.quoteGardenService.randomQuote);
+    this.quoteGardenService.randomQuoteEmiter.next(this.quoteGardenService.randomQuote);
   }
 }

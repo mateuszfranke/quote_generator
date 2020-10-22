@@ -7,7 +7,7 @@
 .btn{
   width: 672px;
   height: 151px;
-  margin-top: 110px;
+  margin-top: 80px;
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 0px;
@@ -22,6 +22,7 @@
   font-weight: 700;
   color:#4F4F4F;
 }
+
 .subtitle{
   justify-self: start;
   font-family: 'Raleway', sans-serif;
@@ -32,7 +33,9 @@
 
 .btn:hover{
   background-color: #333333;
-  color: #F2F2F2;
+  &.author{
+    color: #F2F2F2;
+  }
 }
 
 .arrow{
