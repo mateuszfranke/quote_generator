@@ -7,8 +7,8 @@ import { QuoteComponent } from './quotes/quote/quote.component';
 import { MenuComponent } from './menu/menu.component';
 import { AuthorComponent } from './author/author.component';
 import { QuotesComponent } from './quotes/quotes.component';
-import {HttpClientModule} from '@angular/common/http';
-import {QuoteGardenService} from './services/quote-garden.service';
+import { HttpClientModule } from '@angular/common/http';
+import { QuoteGardenService } from './services/quote-garden.service';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
